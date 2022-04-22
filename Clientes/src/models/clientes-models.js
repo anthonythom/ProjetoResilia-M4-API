@@ -9,4 +9,4 @@ class Cliente {
     this.senha = senha
   }
 }
-module.exports = clientes
+module.exports = Cliente
