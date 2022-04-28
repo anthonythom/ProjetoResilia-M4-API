@@ -10,5 +10,14 @@ class CatalogoSimplesDAO {
       })
     })
   }
+
+  inserirTattos(novaTattoo) {
+    return new Promise((resolve, reject) => {
+      this.bd.run('INSERT INTO CATALOGO (IMAGEM, TITULO, DESCRICAO, TAMANHO, PRECO) VALUES (?, ?, ?, ?, ?)', [novaTattoo.imagem, novaTattoo.titulo, novaTattoo.descricao, novaTattoo.tamanho, novaTattoo.preco], 
+      (error) => {
+        error ? reject(error) : resolve('Nova tatuagem inserida com sucesso')
+      })
+    })
+  }
 }
 module.exports = CatalogoSimplesDAO
