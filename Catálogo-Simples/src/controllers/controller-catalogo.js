@@ -18,7 +18,7 @@ const catalogoSimples = (app, bd) => {
     const body = req.body
     const novaTattoo = new Tattoo(body.imagem, body.titulo, body.descricao, body.tamanho, body.preco)
 
-    instanciaDAO.inserirTattos(novaTattoo)
+    instanciaDAO.inserirTattoos(novaTattoo)
       .then((resposta) => {
         resp.status(201).json(resposta)
       }).catch((error) => {
