@@ -13,6 +13,19 @@ const catalogoSimples = (app, bd) => {
         resp.json(error)
       })
   })
+
+  app.post('/catalogo', function(req, resp) {
+    const body = req.body
+    const novaTattoo = new Tattoo(body.imagem, body.titulo, body.descricao, body.tamanho, body.preco)
+
+    instanciaDAO.inserirTattoos(novaTattoo)
+      .then((resposta) => {
+        resp.status(201).json(resposta)
+      }).catch((error) => {
+        console.log(error)
+        resp.json(error)
+      })
+  })
 }
 
 module.exports = catalogoSimples

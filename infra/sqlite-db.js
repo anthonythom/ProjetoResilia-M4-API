@@ -4,7 +4,8 @@ const sqlite3 = require('sqlite3').verbose();
 
 // Criando banco de dados
   // Passar como parâmetro o caminho do arquivo que eu quero criar
-const bd = new sqlite3.Database("./database.db");
+const bd = new sqlite3.Database("./infra/database.db");
+
 
 //Processamento de sinal
     // Encerra o banco, quando terminamos de usar
