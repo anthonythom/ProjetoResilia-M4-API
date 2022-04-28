@@ -8,7 +8,7 @@
     "mysql": "^2.18.1",
     "nodemon": "^2.0.15",
     "sequelize": "^6.19.0",
-    "sqlite3": "^5.0.5"
+    "sqlite3": "^5.0.6"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
