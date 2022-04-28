@@ -1,9 +1,10 @@
 // Importante o SQLite no arquivo
   // Verbose serve para lidar com possíveis erros
 const sqlite3 = require('sqlite3').verbose();
+
 // Criando banco de dados
   // Passar como parâmetro o caminho do arquivo que eu quero criar
-const bd = new sqlite3.Database('./src/infra/database.db');
+const bd = new sqlite3.Database("./database.db");
 
 //Processamento de sinal
     // Encerra o banco, quando terminamos de usar
