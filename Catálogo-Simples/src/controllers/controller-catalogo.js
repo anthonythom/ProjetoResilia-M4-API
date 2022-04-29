@@ -6,25 +6,24 @@ const catalogoSimples = (app, bd) => {
   const instanciaDAO = new CatalogoSimplesDAO(bd)
 
   app.get('/catalogo', async (req, resp) => {
-    const buscaCatalogo = await instanciaDAO.listarTattoo()
-      .then((resposta) => {
-        resp.status(200).json(resposta)
-      }).catch((error) => {
-        resp.json(error)
-      })
+    try {
+      const buscaCatalogo = await instanciaDAO.listarTattoo()
+      resp.send(buscaCatalogo)
+    } catch(error) {
+      resp.send(error)
+    }
   })
 
   app.post('/catalogo', async (req, resp) => {
     const body = req.body
     const novaTattoo = new Tattoo(body.imagem, body.titulo, body.descricao, body.tamanho, body.preco)
 
-    const adicionaTattoo = await instanciaDAO.inserirTattoos(novaTattoo)
-      .then((resposta) => {
-        resp.status(201).json(resposta)
-      }).catch((error) => {
-        console.log(error)
-        resp.json(error)
-      })
+    try {
+      const adicionaTattoo = await instanciaDAO.inserirTattoos(novaTattoo)
+      resp.send(adicionaTattoo)
+    } catch(error) {
+      resp.send(error)
+    }
   })
 
   app.put('/catalogo/:id', async (req, resp) => {
@@ -53,7 +52,6 @@ const catalogoSimples = (app, bd) => {
     } catch(error) {
       resp.send(error)
     }
-
   })
 }
 
