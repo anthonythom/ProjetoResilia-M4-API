@@ -26,7 +26,6 @@ class CatalogoSimplesDAO {
         error ? reject(error) : resolve(`Dados atualizados`)
       })
     })
-
   }
 
   deletaTattoos(id) {
