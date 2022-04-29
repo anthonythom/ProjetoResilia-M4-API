@@ -20,12 +20,23 @@ class CatalogoSimplesDAO {
     })
   }
 
-  atualizaTattoos() {
+  atualizaTattoos(id, imagem, titulo, desc, tamanho, preco) {
+    return new Promise((resolve, reject) => {
+      this.bd.run(`UPDATE CATALOGO SET imagem = ?, titulo = ?, descricao = ?, tamanho = ?, preco = ? where id = ?`, [imagem, titulo, desc, tamanho, preco, id], (error) => {
+        error ? reject(error) : resolve(`Dados atualizados`)
+      })
+    })
 
   }
 
-  deletaTattoos(indexTattoo) {
-    
+  deletaTattoos(id) {
+    return new Promise((resolve, reject) => {
+      if (id > -1) {
+        this.bd.run(`DELETE FROM CATALOGO WHERE ID = ?`, [id], (error) => {
+          error ? reject(error) : resolve(`Usuário de ID ${id} deletado`)
+        })
+      }
+    })
   }
 }
 module.exports = CatalogoSimplesDAO
