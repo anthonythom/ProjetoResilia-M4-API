@@ -37,6 +37,17 @@ VALUES
     (17, 'https://i.pinimg.com/564x/e4/9c/fc/e49cfc5c314e03994c44c8fae1c9ea34.jpg', 'Reliquias da morte - origem', 'Reliquias da morte e seus primeiros donos', 7, 450)
 `
 
+const BRINCOS_PIERCINGS = `
+CREATE TABLE IF NOT EXISTS "BRINCOS_PIERCINGS" (
+    "ID" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "IMAGEM" varchar(400),
+    "DESCRICAO" varchar(200),
+    "LOCAL" varchar(100),
+    "PRECO" int
+  );`
+
+
+
 function criaTabelaCata() {
     db.run(CATALOGO_SCHEMA, (error)=> {
        if (error) console.log(`Erro ao criar tabela de catalogo + ${error}`);
