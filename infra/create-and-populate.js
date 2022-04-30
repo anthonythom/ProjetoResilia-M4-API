@@ -51,7 +51,7 @@ function populaTabelaCata() {
 
 //criando a tabela brincos e piercings
 const BRINCOS_PIERCINGS = `
-CREATE TABLE IF NOT EXISTS "BRINCOS_PIERCINGS" (
+    CREATE TABLE IF NOT EXISTS "BRINCOS_PIERCINGS" (
     "ID" INTEGER PRIMARY KEY AUTOINCREMENT,
     "IMAGEM" varchar(400),
     "DESCRICAO" varchar(200),
