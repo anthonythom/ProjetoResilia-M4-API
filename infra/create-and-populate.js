@@ -51,7 +51,7 @@ function populaTabelaCata() {
 
 //criando a tabela brincos e piercings
 const ACESSORIOS_SCHEMA = `
-    CREATE TABLE IF NOT EXISTS "BRINCOS_PIERCINGS" (
+    CREATE TABLE IF NOT EXISTS "ACESSORIOS" (
     "ID" INTEGER PRIMARY KEY AUTOINCREMENT,
     "IMAGEM" varchar(400),
     "DESCRICAO" varchar(200),
@@ -61,7 +61,7 @@ const ACESSORIOS_SCHEMA = `
 
   //populando a tabela brincos e piercings
   const ADD_ACESSORIOS_DATA  = `
-    INSERT INTO BRINCOS_PIERCINGS (ID, IMAGEM, TITULO, DESCRICAO, TAMANHO, PRECO)
+    INSERT INTO ACESSORIOS (ID, IMAGEM, TITULO, DESCRICAO, TAMANHO, PRECO)
     VALUES (1, 'https://raw.githubusercontent.com/anthonythom/ProjetoResilia-M4-API/main/imagens/img-piercings-brincos/brincos.jpg', 'Imagem de conjutos de brincos e piercings', 'orelha',  30)`
 
 //função que cria a tabela brincos e piercings
