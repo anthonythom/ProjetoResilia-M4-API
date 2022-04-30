@@ -61,7 +61,7 @@ CREATE TABLE IF NOT EXISTS "BRINCOS_PIERCINGS" (
 
   //populando a tabela brincos e piercings
   const ADD_BRINCOS_PIERCINGS  = `
-    INSERT INTO CATALOGO (ID, IMAGEM, TITULO, DESCRICAO, TAMANHO, PRECO)
+    INSERT INTO BRINCOS_PIERCINGS (ID, IMAGEM, TITULO, DESCRICAO, TAMANHO, PRECO)
     VALUES (1, 'https://raw.githubusercontent.com/anthonythom/ProjetoResilia-M4-API/main/imagens/img-piercings-brincos/brincos.jpg', 'Imagem de conjutos de brincos e piercings', 'orelha',  30)`
 
 //função que cria a tabela brincos e piercings
