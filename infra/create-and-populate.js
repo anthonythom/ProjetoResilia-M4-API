@@ -37,6 +37,19 @@ VALUES
     (17, 'https://i.pinimg.com/564x/e4/9c/fc/e49cfc5c314e03994c44c8fae1c9ea34.jpg', 'Reliquias da morte - origem', 'Reliquias da morte e seus primeiros donos', 7, 450)
 `
 
+function criaTabelaCata() {
+    db.run(CATALOGO_SCHEMA, (error)=> {
+       if (error) console.log(`Erro ao criar tabela de catalogo: ${error}`);
+    });
+}
+
+function populaTabelaCata() {
+    db.run(ADD_CATALOGO_DATA, (error)=> {
+       if (error) console.log(`Erro ao popular tabela de catalogo: ${error}`);
+    });
+}
+
+//criando a tabela brincos e piercings
 const BRINCOS_PIERCINGS = `
 CREATE TABLE IF NOT EXISTS "BRINCOS_PIERCINGS" (
     "ID" INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -46,21 +59,28 @@ CREATE TABLE IF NOT EXISTS "BRINCOS_PIERCINGS" (
     "PRECO" int
   );`
 
+  //populando a tabela brincos e piercings
+  const ADD_BRINCOS_PIERCINGS  = `
+    INSERT INTO CATALOGO (ID, IMAGEM, TITULO, DESCRICAO, TAMANHO, PRECO)
+    VALUES (1, 'https://raw.githubusercontent.com/anthonythom/ProjetoResilia-M4-API/main/imagens/img-piercings-brincos/brincos.jpg', 'Imagem de conjutos de brincos e piercings', 'orelha',  30)`
 
-
-function criaTabelaCata() {
-    db.run(CATALOGO_SCHEMA, (error)=> {
-       if (error) console.log(`Erro ao criar tabela de catalogo + ${error}`);
+//função que cria a tabela brincos e piercings
+function tabelaBrincosPiercings() {
+    db.run(BRINCOS_PIERCINGS, (erro)=> {
+       if (erro) console.log(`Erro ao criar tabela de brincos e piercings: ${erro}`);
     });
 }
 
-function populaTabelaCata() {
-    db.run(ADD_CATALOGO_DATA, (error)=> {
-       if (error) console.log(`Erro ao popular tabela de catalogo + ${error}`);
+//função que popula a tabela brincos e piercings
+function populaBrincosPiercings() {
+    db.run(ADD_BRINCOS_PIERCINGS, (erro)=> {
+       if (erro) console.log(`Erro ao popular tabela de catalogo: ${erro}`);
     });
 }
 
 db.serialize( ()=> {
     criaTabelaCata();
     populaTabelaCata();
+    tabelaBrincosPiercings();
+    populaBrincosPiercings();
 });
