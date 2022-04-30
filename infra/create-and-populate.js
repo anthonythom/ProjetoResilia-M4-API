@@ -50,13 +50,19 @@ CREATE TABLE IF NOT EXISTS "BRINCOS_PIERCINGS" (
 
 function criaTabelaCata() {
     db.run(CATALOGO_SCHEMA, (error)=> {
-       if (error) console.log(`Erro ao criar tabela de catalogo + ${error}`);
+       if (error) console.log(`Erro ao criar tabela de catalogo: ${error}`);
     });
 }
 
 function populaTabelaCata() {
     db.run(ADD_CATALOGO_DATA, (error)=> {
-       if (error) console.log(`Erro ao popular tabela de catalogo + ${error}`);
+       if (error) console.log(`Erro ao popular tabela de catalogo: ${error}`);
+    });
+}
+
+function tabelaBrincosPiercings() {
+    db.run(BRINCOS_PIERCINGS, (erro)=> {
+       if (erro) console.log(`Erro ao criar tabela de brincos e piercings: ${erro}`);
     });
 }
 
