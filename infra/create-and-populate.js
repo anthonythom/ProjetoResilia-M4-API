@@ -69,4 +69,5 @@ function tabelaBrincosPiercings() {
 db.serialize( ()=> {
     criaTabelaCata();
     populaTabelaCata();
+    tabelaBrincosPiercings();
 });
