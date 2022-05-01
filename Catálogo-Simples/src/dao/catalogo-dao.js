@@ -11,6 +11,14 @@ class CatalogoSimplesDAO {
     })
   }
 
+  listaItemEspecifico(id) {
+    return new Promise((resolve, reject) => {
+      this.bd.all(`SELECT * FROM CATALOGO WHERE ID = ?`, [id], (error, rows) => {
+        error ? reject(console.log(error)) : resolve({"Resultado da busca": rows})
+      })
+    })
+  }
+
   inserirTattoos(novaTattoo) {
     return new Promise((resolve, reject) => {
       this.bd.run('INSERT INTO CATALOGO (IMAGEM, TITULO, DESCRICAO, TAMANHO, PRECO) VALUES (?, ?, ?, ?, ?)', [novaTattoo.imagem, novaTattoo.titulo, novaTattoo.descricao, novaTattoo.tamanho, novaTattoo.preco], 
@@ -20,9 +28,9 @@ class CatalogoSimplesDAO {
     })
   }
 
-  atualizaTattoos(id, imagem, titulo, desc, tamanho, preco) {
+  atualizaTattoos(CatalogoAtualizado) {
     return new Promise((resolve, reject) => {
-      this.bd.run(`UPDATE CATALOGO SET imagem = ?, titulo = ?, descricao = ?, tamanho = ?, preco = ? where id = ?`, [imagem, titulo, desc, tamanho, preco, id], (error) => {
+      this.bd.run(`UPDATE CATALOGO SET imagem = ?, titulo = ?, descricao = ?, tamanho = ?, preco = ? WHERE id = ?`, CatalogoAtualizado, (error) => {
         error ? reject(error) : resolve(`Dados atualizados`)
       })
     })
@@ -38,4 +46,5 @@ class CatalogoSimplesDAO {
     })
   }
 }
+
 module.exports = CatalogoSimplesDAO
