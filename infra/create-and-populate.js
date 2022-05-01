@@ -92,6 +92,8 @@ function populaAcessorios() {
        if (erro) console.log(`Erro ao popular tabela de catalogo: ${erro}`);
     });
 }
+
+//CLIENTES
 function criaTabelaClientes() {
     db.run(CLIENTES_SCHEMA, (erro)=> {
        if (erro) console.log(`Erro ao criar tabela de clientes: ${erro}`);
@@ -102,10 +104,12 @@ function populaClientes() {
        if (erro) console.log(`Erro ao popular tabela de clientes: ${erro}`);
     });
 }
-
 const ADD_CLIENTES_DATA  = `
-INSERT or IGNORE INTO ACESSORIOS (ID, IMAGEM, DESCRICAO, LOCAL, PRECO)
-VALUES`
+INSERT INTO CATALOGO (ID, NOME, EMAIL, SENHA, DDD, TELEFONE, CPF, RUA, CEP, DATA_NASC)
+VALUES
+    (1, 'Bruno José Blanquez', 'brunp@bol.com.br', '*******', '11', '940028922', '56923423965', 'rua chuvas de verao', '65485010', '30/05/2001'),
+    (2, 'Hugo Legramandi', 'hugo2@gmail.com', '********', '12', '940428922', '56223423465', 'rua gotas de verao', '65585000', '30/06/2001'),
+    (3, 'Rafael Silva', 'contatorafa@yahoo.com', '********', '98', '950028922', '56923433465', 'rua noite de verao', '67485000', '30/04/2001') `
 
 db.serialize( ()=> {
     criaTabelaClientes();
