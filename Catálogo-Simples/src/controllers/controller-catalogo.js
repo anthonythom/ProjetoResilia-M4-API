@@ -14,6 +14,16 @@ const catalogoSimples = (app, bd) => {
     }
   })
 
+  app.get('/catalogo/:id', async (req, resp) => {
+    const userID = req.params.id
+    try {
+      const buscaEspecifico = await instanciaDAO.listaItemEspecifico(userID)
+      resp.send(buscaEspecifico)
+    } catch(error) {
+      resp.send(error)
+    }
+  })
+
   app.post('/catalogo', async (req, resp) => {
     const body = req.body
     const novaTattoo = new Tattoo(body.imagem, body.titulo, body.descricao, body.tamanho, body.preco)
@@ -30,18 +40,17 @@ const catalogoSimples = (app, bd) => {
     const userID = req.params.id
     // Novos dados
     const body = req.body
-    const novaImg = body.imagem
-    const novoTit = body.titulo
-    const novaDesc = body.descricao
-    const novoTamanho = body.tamanho
-    const novoPreco = body.preco 
 
-    try {
-      const updateTattoo = await instanciaDAO.atualizaTattoos(userID, novaImg, novoTit, novaDesc, novoTamanho, novoPreco)
-      resp.send(updateTattoo)
-    } catch(error) {
-      resp.send(error)
+    const parametros = [body.imagem, body.titulo, body.descricao, body.tamanho, body.preco, userID]
+    const data = async () => {
+      try {
+        const updateTattoo = await instanciaDAO.atualizaTattoos(parametros)
+        resp.send(updateTattoo)
+      } catch(error) {
+        resp.send(error)
+      }
     }
+    data()
   })
 
   app.delete('/catalogo/:id', async (req, resp) => {
