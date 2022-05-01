@@ -26,7 +26,7 @@ class AcessorioDAO {
     //função que att dados do bd
     atualizaAcessorios(id, imagem, desc, local, preco) {
       return new Promise((resolve, reject) => {
-        this.bd.run(`UPDATE ACESSORIOS SET imagem = ?, descricao = ?, tamanho = ?, preco = ? where id = ?`, [imagem, desc, local, preco, id], (error) => {
+        this.bd.run(`UPDATE ACESSORIOS SET imagem = ?, descricao = ?, local = ?, preco = ? where id = ?`, [imagem, desc, local, preco, id], (error) => {
           error ? reject(error) : resolve(`Dados atualizados`)
         })
       })
