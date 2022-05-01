@@ -4,6 +4,21 @@ Esse arquivo deve ser executado apenas uma vez para que a o banco seja criado e 
 const sqlite3 = require('sqlite3').verbose();
 const db = new sqlite3.Database('./database.db');
 
+
+
+const CLIENTES_SCHEMA = `
+CREATE TABLE IF NOT EXISTS "CLIENTES" (
+    "ID" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "NOME" varchar(64),
+    "EMAIL" varchar(64),
+    "SENHA" varchar(64),
+    "DDD" int(2),
+    "TELEFONE" varchar(9),
+    "CPF" int(11),
+    "RUA" varchar(64),
+    "CEP" int(8),
+    "DATA_NASC" date null 
+  );`;
 //==== Usuários
 const CATALOGO_SCHEMA = `
 CREATE TABLE IF NOT EXISTS "CATALOGO" (
@@ -77,8 +92,24 @@ function populaAcessorios() {
        if (erro) console.log(`Erro ao popular tabela de catalogo: ${erro}`);
     });
 }
+function criaTabelaClientes() {
+    db.run(CLIENTES_SCHEMA, (erro)=> {
+       if (erro) console.log(`Erro ao criar tabela de clientes: ${erro}`);
+    });
+}
+function populaClientes() {
+    db.run(ADD_CLIENTES_DATA, (erro)=> {
+       if (erro) console.log(`Erro ao popular tabela de clientes: ${erro}`);
+    });
+}
+
+const ADD_CLIENTES_DATA  = `
+INSERT or IGNORE INTO ACESSORIOS (ID, IMAGEM, DESCRICAO, LOCAL, PRECO)
+VALUES`
 
 db.serialize( ()=> {
+    criaTabelaClientes();
+    populaClientes();
     criaTabelaCata();
     populaTabelaCata();
     criaTabelaAcessorios();
