@@ -61,7 +61,7 @@ const ACESSORIOS_SCHEMA = `
 
   //populando a tabela brincos e piercings
   const ADD_ACESSORIOS_DATA  = `
-    INSERT INTO ACESSORIOS (ID, IMAGEM, DESCRICAO, LOCAL, PRECO)
+    INSERT or IGNORE INTO ACESSORIOS (ID, IMAGEM, DESCRICAO, LOCAL, PRECO)
     VALUES (1, 'https://raw.githubusercontent.com/anthonythom/ProjetoResilia-M4-API/main/imagens/img-piercings-brincos/brincos.jpg', 'Imagem de conjutos de brincos e piercings', 'orelha',  30)`
 
 //função que cria a tabela brincos e piercings
