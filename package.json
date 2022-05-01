@@ -12,5 +12,19 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
-  }
+  },
+  "name": "projetoresilia-m4-api",
+  "description": "Projeto final do módulo 4 do Curso de WebDev FullStack da Resilia. Projeto do grupo 2: Anthony Thomas, Bruno Blanquez, Rafael Peruzini, Rafael Alesson e Yasmin Coelho",
+  "version": "1.0.0",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anthonythom/ProjetoResilia-M4-API.git"
+  },
+  "author": "Rafalesson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anthonythom/ProjetoResilia-M4-API/issues"
+  },
+  "homepage": "https://github.com/anthonythom/ProjetoResilia-M4-API#readme"
 }

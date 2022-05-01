@@ -61,18 +61,18 @@ const ACESSORIOS_SCHEMA = `
 
   //populando a tabela brincos e piercings
   const ADD_ACESSORIOS_DATA  = `
-    INSERT INTO ACESSORIOS (ID, IMAGEM, TITULO, DESCRICAO, TAMANHO, PRECO)
+    INSERT INTO ACESSORIOS (ID, IMAGEM, DESCRICAO, LOCAL, PRECO)
     VALUES (1, 'https://raw.githubusercontent.com/anthonythom/ProjetoResilia-M4-API/main/imagens/img-piercings-brincos/brincos.jpg', 'Imagem de conjutos de brincos e piercings', 'orelha',  30)`
 
 //função que cria a tabela brincos e piercings
-function tabelaBrincosPiercings() {
+function criaTabelaAcessorios() {
     db.run(ACESSORIOS_SCHEMA, (erro)=> {
        if (erro) console.log(`Erro ao criar tabela de brincos e piercings: ${erro}`);
     });
 }
 
 //função que popula a tabela brincos e piercings
-function populaBrincosPiercings() {
+function populaAcessorios() {
     db.run(ADD_ACESSORIOS_DATA, (erro)=> {
        if (erro) console.log(`Erro ao popular tabela de catalogo: ${erro}`);
     });
@@ -81,6 +81,6 @@ function populaBrincosPiercings() {
 db.serialize( ()=> {
     criaTabelaCata();
     populaTabelaCata();
-    tabelaBrincosPiercings();
-    populaBrincosPiercings();
+    criaTabelaAcessorios();
+    populaAcessorios();
 });
