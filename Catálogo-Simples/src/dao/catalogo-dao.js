@@ -14,7 +14,7 @@ class CatalogoSimplesDAO {
   listaItemEspecifico(id) {
     return new Promise((resolve, reject) => {
       this.bd.all(`SELECT * FROM CATALOGO WHERE ID = ?`, [id], (error, rows) => {
-        error ? reject(console.log(error)) : resolve({"Resultado da busca": rows})
+        error ? reject(console.log(error)) : resolve(rows)
       })
     })
   }
