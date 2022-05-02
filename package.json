@@ -4,6 +4,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.3",
     "mysql": "^2.18.1",
     "nodemon": "^2.0.15",
@@ -11,7 +12,8 @@
     "sqlite3": "^5.0.6"
   },
   "devDependencies": {
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "supertest": "^6.2.3"
   },
   "name": "projetoresilia-m4-api",
   "description": "Projeto final do módulo 4 do Curso de WebDev FullStack da Resilia. Projeto do grupo 2: Anthony Thomas, Bruno Blanquez, Rafael Peruzini, Rafael Alesson e Yasmin Coelho",
