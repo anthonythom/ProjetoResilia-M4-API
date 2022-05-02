@@ -47,7 +47,7 @@ $ npm start
 	PUT - atualize clientes = http://localhost:3030/cliente/:id
 	DELETE - delete clientes = http://localhost:3030/cliente/:id
 	
-	<h3>Teste também as outras entidades alterando somemente o nome das rotas</h3>
+	Teste também as outras entidades alterando somemente o nome das rotas
 
 	
 <h2>Contribuidores do projeto</h2>
