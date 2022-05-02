@@ -37,7 +37,7 @@ instalados em seu computador. Você também vai precisar instalar algum programa
 $ git clone https://github.com/anthonythom/ProjetoResilia-M4-API.git
 
 # Entre no repositorio
-$ cd tattoo-api-rest
+$ cd Projeto-M4-API
 
 # Instale as dependências
 $ npm install
