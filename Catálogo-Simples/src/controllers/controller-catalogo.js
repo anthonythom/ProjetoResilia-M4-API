@@ -41,9 +41,18 @@ const catalogoSimples = (app, bd) => {
     // Novos dados
     const body = req.body
 
-    const parametros = [body.imagem, body.titulo, body.descricao, body.tamanho, body.preco, userID]
     const data = async () => {
       try {
+        const dadosCatalogo = await instanciaDAO.listaItemEspecifico(userID);
+        const catalogoDado = new Tattoo(
+          body.imagem || dadosCatalogo[0].IMAGEM, 
+          body.titulo || dadosCatalogo[0].TITULO, 
+          body.descricao || dadosCatalogo[0].DESCRICAO,
+          body.tamanho || dadosCatalogo[0].TAMANHO,
+          body.preco || dadosCatalogo[0].PRECO
+          )
+        const parametros = [catalogoDado.imagem, catalogoDado.titulo, catalogoDado.descricao, catalogoDado.tamanho, catalogoDado.preco, userID]
+        console.log(dadosCatalogo[0].PRECO)
         const updateTattoo = await instanciaDAO.atualizaTattoos(parametros)
         resp.send(updateTattoo)
       } catch(error) {
@@ -53,14 +62,17 @@ const catalogoSimples = (app, bd) => {
     data()
   })
 
-  app.delete('/catalogo/:id', async (req, resp) => {
-    const idUser = req.params.id
-    try {
-      const deletaRegistro = await instanciaDAO.deletaTattoos(idUser)
-      resp.send(deletaRegistro)
-    } catch(error) {
-      resp.send(error)
-    }
+  app.delete('/catalogo/:id', (req, resp) => {
+     const data = async() => {
+      const idUser = req.params.id
+      try {
+        const deletaRegistro = await instanciaDAO.deletaTattoos(idUser)
+        resp.send(deletaRegistro)
+      } catch(error) {
+        resp.send(error)
+      }
+     }
+     data()
   })
 }
 
