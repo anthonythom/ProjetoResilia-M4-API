@@ -9,7 +9,13 @@
 <br>
 
 <h2>Sobre o projeto</h2>
-<p> Desenvolvimento de uma API no padrão REST. Tema escolhido: Estudio de tatuagem. </p>
+<p> Projeto desenvolvido para a conclusão do módulo 4 na Resilia Educação.
+
+Para este projeto, foi proposto a criação de uma API de uma imobiliária, onde cada integrante do grupo ficou responsável por uma entidade.
+
+Neste repositório se encontra a entidade de Acessorios, Clientes, Catalogo, Catalogo de exclusivas e .
+
+Nesta aplicação é possível registrar, listar, atualizar e deletar imóveis. </p>
 
 <li> Tecnologias usadas:</li><br>
 <p>
