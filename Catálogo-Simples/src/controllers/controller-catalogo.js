@@ -62,14 +62,17 @@ const catalogoSimples = (app, bd) => {
     data()
   })
 
-  app.delete('/catalogo/:id', async (req, resp) => {
-    const idUser = req.params.id
-    try {
-      const deletaRegistro = await instanciaDAO.deletaTattoos(idUser)
-      resp.send(deletaRegistro)
-    } catch(error) {
-      resp.send(error)
-    }
+  app.delete('/catalogo/:id', (req, resp) => {
+     const data = async() => {
+      const idUser = req.params.id
+      try {
+        const deletaRegistro = await instanciaDAO.deletaTattoos(idUser)
+        resp.send(deletaRegistro)
+      } catch(error) {
+        resp.send(error)
+      }
+     }
+     data()
   })
 }
 

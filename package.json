@@ -1,7 +1,7 @@
 {
   "scripts": {
     "start": "nodemon ./app.js",
-    "test": "jest --detectOpenHandles --forceExit"
+    "test": "jest"
   },
   "dependencies": {
     "cors": "^2.8.5",
