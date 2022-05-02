@@ -22,8 +22,8 @@
  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/heroku/heroku-original-wordmark.svg" width="40" height="40"/>
 </p>
 <h2>ℹ️ Como usar</h2>
-<p> To clone and run this project you will need <a href="https://git-scm.com/ target="_blank">Git</a>, <a href="https://nodejs.org/en/" target="_blank">Node.JS v14.15.5 or higher</a> + <a href="https://docs.npmjs.com/cli/v8/commands/npm-install" target="_blank">Npm v6.14.11<a>
-installed on your computer. You also need a API Client plataform like <a href="https://www.postman.com/" target="_blank">Postman</a> to test the routes. You need to run some commands on your command line:
+<p> Para usar este projeto, você vai precisar do<a href="https://git-scm.com/ target="_blank">Git</a>, <a href="https://nodejs.org/en/" target="_blank">Node.JS v14.15.5 or higher</a> + <a href="https://docs.npmjs.com/cli/v8/commands/npm-install" target="_blank">Npm v6.14.11<a>
+istalado em seu computador. Você também vai precisar instalar em seu computador um programa para testar a API, recomendamos o Insomnia <a href="https://insomnia.rest/download" target="_blank">Insomnia</a> para testar as rotas. Comandos iniciais:
 </p>
 
 ```
