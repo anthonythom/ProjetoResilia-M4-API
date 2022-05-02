@@ -1,6 +1,6 @@
-# Projeto-M4-API
 
-<h1> :heart: Projeto final do módulo 4  </h1>
+
+# <h1> :heart: Projeto final do módulo 4  </h1>
 
 <br>
 <p align="center">
@@ -13,14 +13,15 @@
 
 <li> Tecnologias usadas:</li><br>
 <p>
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" width="40" height="40" />
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/npm/npm-original-wordmark.svg" width="40" height="40" />
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg" width="40" height="40"/>
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sequelize/sequelize-original.svg" width="40" height="40" />
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" width="40" height="40"/>
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original-wordmark.svg" width="40" height="40" />
+	<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg" width="40" height="40"/>
+	<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" width="40" height="40"/>
+	<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" width="40" height="40" />
+	<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/npm/npm-original-wordmark.svg" width="40" height="40" />
+	<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sequelize/sequelize-original.svg" width="40" height="40" />
+	<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original-wordmark.svg" width="40" height="40" />
 </p>
-<h2>ℹ️ Como usar</h2>
+<h2>ℹ️ Como usar ℹ️</h2>
+
 <p> Para usar este projeto, você vai precisar do <a href="https://git-scm.com/ target="_blank"> Git</a>, <a href="https://nodejs.org/en/" target="_blank">Node.JS v16.15.0 LTS ou superior </a> + <a href="https://docs.npmjs.com/cli/v8/commands/npm-install" target="_blank">Npm v8.5.0<a>
 instalado em seu computador. Você também vai precisar instalar algum programa para testar a API, recomendamos o Insomnia <a href="https://insomnia.rest/download" target="_blank">Insomnia</a> para testar as rotas. Comandos iniciais:
 </p>
@@ -59,4 +60,4 @@ $ npm start
 
 <br><br>
 
-<p> <a href="https://www.resilia.com.br/">Resilia</a> </p>
+# <p> <a href="https://www.resilia.com.br/">Resilia</a> </p>
