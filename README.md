@@ -11,7 +11,7 @@
 <h2>Sobre o projeto</h2>
 <p> Projeto desenvolvido para a conclusão do módulo 4 na Resilia Educação.
 
-Para este projeto, foi proposto a criação de uma API de uma imobiliária, onde cada integrante do grupo ficou responsável por uma entidade.
+Para este projeto, foi proposto a criação de uma API de um Estudio de tatuagem, onde cada integrante do grupo ficou responsável por uma entidade.
 
 Neste repositório se encontra a entidade de Acessorios, Clientes, Catalogo, Catalogo de exclusivas e .
 
