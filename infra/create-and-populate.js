@@ -4,8 +4,7 @@ Esse arquivo deve ser executado apenas uma vez para que a o banco seja criado e 
 const sqlite3 = require('sqlite3').verbose();
 const db = new sqlite3.Database('./database.db');
 
-
-
+//CLIENTES
 const CLIENTES_SCHEMA = `
 CREATE TABLE IF NOT EXISTS "CLIENTES" (
     "ID" INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -19,6 +18,25 @@ CREATE TABLE IF NOT EXISTS "CLIENTES" (
     "CEP" int(8),
     "DATA_NASC" date null 
   );`;
+
+  const ADD_CLIENTES_DATA  = `
+INSERT INTO CLIENTES (ID, NOME, EMAIL, SENHA, DDD, TELEFONE, CPF, RUA, CEP, DATA_NASC)
+VALUES
+    (1, 'Bruno José Blanquez', 'brunp@bol.com.br', '*******', '11', '940028922', '56923423965', 'rua chuvas de verao', '65485010', '30/05/2001'),
+    (2, 'Hugo Legramandi', 'hugo2@gmail.com', '********', '12', '940428922', '56223423465', 'rua gotas de verao', '65585000', '30/06/2001'),
+    (3, 'Rafael Silva', 'contatorafa@yahoo.com', '********', '98', '950028922', '56923433465', 'rua noite de verao', '67485000', '30/04/2001') `
+
+function criaTabelaClientes() {
+    db.run(CLIENTES_SCHEMA, (erro)=> {
+       if (erro) console.log(`Erro ao criar tabela de clientes: ${erro}`);
+    });
+}
+function populaClientes() {
+    db.run(ADD_CLIENTES_DATA, (erro)=> {
+       if (erro) console.log(`Erro ao popular tabela de clientes: ${erro}`);
+    });
+}
+
 //==== Usuários
 const CATALOGO_SCHEMA = `
 CREATE TABLE IF NOT EXISTS "CATALOGO" (
@@ -93,23 +111,6 @@ function populaAcessorios() {
     });
 }
 
-//CLIENTES
-function criaTabelaClientes() {
-    db.run(CLIENTES_SCHEMA, (erro)=> {
-       if (erro) console.log(`Erro ao criar tabela de clientes: ${erro}`);
-    });
-}
-function populaClientes() {
-    db.run(ADD_CLIENTES_DATA, (erro)=> {
-       if (erro) console.log(`Erro ao popular tabela de clientes: ${erro}`);
-    });
-}
-const ADD_CLIENTES_DATA  = `
-INSERT INTO CATALOGO (ID, NOME, EMAIL, SENHA, DDD, TELEFONE, CPF, RUA, CEP, DATA_NASC)
-VALUES
-    (1, 'Bruno José Blanquez', 'brunp@bol.com.br', '*******', '11', '940028922', '56923423965', 'rua chuvas de verao', '65485010', '30/05/2001'),
-    (2, 'Hugo Legramandi', 'hugo2@gmail.com', '********', '12', '940428922', '56223423465', 'rua gotas de verao', '65585000', '30/06/2001'),
-    (3, 'Rafael Silva', 'contatorafa@yahoo.com', '********', '98', '950028922', '56923433465', 'rua noite de verao', '67485000', '30/04/2001') `
 
 db.serialize( ()=> {
     criaTabelaClientes();
