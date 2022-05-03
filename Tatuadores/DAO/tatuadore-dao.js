@@ -68,4 +68,4 @@ class TatuadoresDAO{
 
 }
 
-module.exports = ClienteDAO;
+module.exports = TatuadoresDAO;
