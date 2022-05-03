@@ -36,11 +36,11 @@ const Tatuadores = (app,bd)=>{
      
     })
         // READ DO CRUD E EXIBI REGISTROS
-        app.get('/cliente/:id', (req, res) => {
+        app.get('/tatuadores/:id_t', (req, res) => {
             const data = async() => {
                 try {
-                    const clientes =  await DAOCliente.listarClientesID(req.params.id);
-                    res.send(clientes)
+                    const tatuadores =  await DAOTatuadores.listartatuadoresID(req.params.id);
+                    res.send(tatuadores)
                 }catch(err) {
                     res.send(err)
                 }
