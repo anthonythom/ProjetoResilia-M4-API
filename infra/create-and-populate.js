@@ -152,5 +152,6 @@ db.serialize( ()=> {
     populaTabelaCata();
     criaTabelaAcessorios();
     populaAcessorios();
-    //
+    //criaTabelaTatuadores
+    //opulaTatuadores
 });
