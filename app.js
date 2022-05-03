@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 const cors = require('cors')
+const port = process.env.PORT || 3030
 
 // Usando CORS
 app.use(cors())
@@ -21,6 +22,6 @@ clientes(app, bd)
 catalogoSimples(app, bd)
 acessorios(app, bd)
 
-app.listen(3030, () => {
+app.listen(port, () => {
   console.log(`Servidor rodando na porta 3030`);
 })
