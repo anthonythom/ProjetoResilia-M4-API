@@ -167,4 +167,49 @@ db.serialize( ()=> {
     populaAcessorios();
     criaTabelaExclusivas();
     populaTabelaExclusivas();
-});
+    criaTabelaTatuadores;
+   populaTatuadores;
+//TATUADORES
+
+const  TATUADORES_SCHEMA = `
+CREATE TABLE IF NOT EXISTS "TATUADORES" (
+    "ID_T" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "NOME" varchar(64),
+    "EMAIL" varchar(64),
+    "DDD" int(2),
+    "TELEFONE" varchar(9),
+    "CPF" int(11),
+    "RUA" varchar(64),
+    "CEP" int(8),
+    "DATA_NASC" date null 
+  );`;
+//POPULANDO TATUADORES
+  const ADD_TATUADORES_DATA  = `
+  INSERT INTO TATUADORES (ID_T, NOME, EMAIL, DDD, TELEFONE, CPF, RUA, CEP, DATA_NASC)
+  VALUES
+      (100B, 'Bruce Wayne', 'batman@dc.com.br', '*******', '99', '940028922', '56923423965', 'rua de Gothan', '65485010', '30/05/2001'),
+      (200V, 'James Howleat', 'logan2@gmail.com', '********', '98', '940428922', '56223423465', 'rua Melhor naquilo que faz', '65585000', '30/06/1737'),
+      (300P, 'Guen Stacy', 'spider@yahoo.com', '********', '97', '950028922', '56923433465', 'rua Marvel', '67485000', '30/04/2001') `
+  
+      function criaTabelaTatuadores() {
+        db.run(TATUADORES_SCHEMA, (erro)=> {
+           if (erro) console.log(`Erro ao criar tabela de tatuadores: ${erro}`);
+        });
+    }
+    function populaTatuadores() {
+        db.run(ADD_TATUADORES_DATA, (erro)=> {
+           if (erro) console.log(`Erro ao popular tabela de tatuadores: ${erro}`);
+        });
+    }
+    
+
+db.serialize( ()=> {
+   criaTabelaClientes();
+   populaClientes();
+   criaTabelaCata();
+   populaTabelaCata();
+   criaTabelaAcessorios();
+   populaAcessorios();
+   criaTabelaTatuadores;
+   populaTatuadores;
+})
