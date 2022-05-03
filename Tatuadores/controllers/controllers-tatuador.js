@@ -1,0 +1,85 @@
+//PESSOA - CRUD 
+const Tatuadores = require('../models/tatuadores-models.js')
+const TatuadoresDAO = require('../DAO/tatuadores-dao')
+
+
+const Tatuadores = (app,bd)=>{
+    const DAOTatuador = new TatuadoresDAO(bd)
+    //CREATE DO CRUD - INSERIR REGISTROS
+    app.post('/cliente', (req, res) => {
+        // Armazenar banco de dados
+        const body = req.body
+        const TatuadoresDado = new Tatuadores(body.nome, body.email, body.ddd, body.telefone, body.cpf, body.rua, body.cep, body.data_nasc)
+        const data = async() => {
+            try {
+                const tatuadores =  await DAOTatuadores.insereTatuadores(TatuadoresDado)
+                res.send(tatuadores)
+            }catch(err) {
+                res.send(err)
+            }
+           
+        }
+        data()
+     })
+    // READ DO CRUD E EXIBI REGISTROS
+    app.get('/tatuadores', (req, res) => {
+        const data = async() => {
+            try {
+                const tatuadores =  await DAOTatuadores.listarTatuadores()
+                res.send(tatuadores)
+            }catch(err) {
+                res.send(err)
+            }
+           
+        }
+        data()
+     
+    })
+        // READ DO CRUD E EXIBI REGISTROS
+        app.get('/cliente/:id', (req, res) => {
+            const data = async() => {
+                try {
+                    const clientes =  await DAOCliente.listarClientesID(req.params.id);
+                    res.send(clientes)
+                }catch(err) {
+                    res.send(err)
+                }
+               
+            }
+            data()
+           })  
+    //UPDATE DO CRUD - ATUALIZAR REGISTROS
+    app.put('/pessoa/:id', (req, res) => {
+        const body = req.body;
+        const id = req.params.id
+        const parametros = [body.nome, body.email, body.senha, body.ddd, body.telefone, body.cpf, body.rua, body.cep, body.data_nasc , id]
+        const data = async() => {
+            try {
+                const clientes =  await DAOCliente.altereClientes(parametros)
+                res.send(clientes)
+            }catch(err) {
+                res.send(err)
+            }
+           
+        }
+        data()
+
+      
+    })
+    //DELETE DO CRUD - DELETAR REGISTROS
+    app.delete('/cliente/:id', (req, res) => {
+        const data = async() => {
+            try {
+                const clientes =  await DAOCliente.deleteClientes(req.params.id)
+                res.send(clientes)
+            }catch(err) {
+                res.send(err)
+            }
+           
+        }
+        data()
+        
+    })
+} 
+
+module.exports = cliente;
