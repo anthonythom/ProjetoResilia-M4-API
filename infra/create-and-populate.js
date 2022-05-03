@@ -111,6 +111,22 @@ function populaAcessorios() {
     });
 }
 
+//POPULANDO TATUADORES
+
+const  Tatuadores_SCHEMA = `
+CREATE TABLE IF NOT EXISTS "TATUADORES" (
+    "ID" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "NOME" varchar(64),
+    "EMAIL" varchar(64),
+    "DDD" int(2),
+    "TELEFONE" varchar(9),
+    "CPF" int(11),
+    "RUA" varchar(64),
+    "CEP" int(8),
+    "DATA_NASC" date null 
+  );`;
+
+
 
 db.serialize( ()=> {
     criaTabelaClientes();
