@@ -6,7 +6,8 @@ const TatuadoresDAO = require('../DAO/tatuadores-dao')
 const Tatuadores = (app,bd)=>{
     const DAOTatuador = new TatuadoresDAO(bd)
     //CREATE DO CRUD - INSERIR REGISTROS
-    app.post('/cliente', (req, res) => {
+
+    app.post('/tatuadores', (req, res) => {
         // Armazenar banco de dados
         const body = req.body
         const TatuadoresDado = new Tatuadores(body.nome, body.email, body.ddd, body.telefone, body.cpf, body.rua, body.cep, body.data_nasc)
