@@ -146,12 +146,12 @@ CREATE TABLE IF NOT EXISTS "TATUADORES" (
     
 
 db.serialize( ()=> {
-   //criaTabelaClientes();
-  // populaClientes();
-  // criaTabelaCata();
-  // populaTabelaCata();
-  //  criaTabelaAcessorios();
-  //  populaAcessorios();
-    criaTabelaTatuadores
-    populaTatuadores
+   criaTabelaClientes();
+   populaClientes();
+   criaTabelaCata();
+   populaTabelaCata();
+   criaTabelaAcessorios();
+   populaAcessorios();
+   criaTabelaTatuadores
+   populaTatuadores
 });
