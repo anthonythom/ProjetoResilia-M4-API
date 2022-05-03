@@ -115,7 +115,7 @@ function populaAcessorios() {
 
 const  TATUADORES_SCHEMA = `
 CREATE TABLE IF NOT EXISTS "TATUADORES" (
-    "ID-T" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "ID_T" INTEGER PRIMARY KEY AUTOINCREMENT,
     "NOME" varchar(64),
     "EMAIL" varchar(64),
     "DDD" int(2),
@@ -127,7 +127,7 @@ CREATE TABLE IF NOT EXISTS "TATUADORES" (
   );`;
 //POPULANDO TATUADORES
   const ADD_TATUADORES_DATA  = `
-  INSERT INTO TATUADORES (ID-T, NOME, EMAIL, DDD, TELEFONE, CPF, RUA, CEP, DATA_NASC)
+  INSERT INTO TATUADORES (ID_T, NOME, EMAIL, DDD, TELEFONE, CPF, RUA, CEP, DATA_NASC)
   VALUES
       (100B, 'Bruce Wayne', 'batman@dc.com.br', '*******', '99', '940028922', '56923423965', 'rua de Gothan', '65485010', '30/05/2001'),
       (200V, 'James Howleat', 'logan2@gmail.com', '********', '98', '940428922', '56223423465', 'rua Melhor naquilo que faz', '65585000', '30/06/1737'),
