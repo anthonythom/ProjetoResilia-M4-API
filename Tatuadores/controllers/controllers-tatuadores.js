@@ -49,14 +49,14 @@ const Tatuadores = (app,bd)=>{
             data()
            })  
     //UPDATE DO CRUD - ATUALIZAR REGISTROS
-    app.put('/pessoa/:id', (req, res) => {
+    app.put('/pessoa/:id_t', (req, res) => {
         const body = req.body;
-        const id = req.params.id
-        const parametros = [body.nome, body.email, body.senha, body.ddd, body.telefone, body.cpf, body.rua, body.cep, body.data_nasc , id]
+        const id_t = req.params.id_t
+        const parametros = [body.nome, body.email, body.ddd, body.telefone, body.cpf, body.rua, body.cep, body.data_nasc , id]
         const data = async() => {
             try {
-                const clientes =  await DAOCliente.altereClientes(parametros)
-                res.send(clientes)
+                const tatuadores =  await DAOTatuadores.altereTatuadores(parametros)
+                res.send(tatuadores)
             }catch(err) {
                 res.send(err)
             }
@@ -67,11 +67,11 @@ const Tatuadores = (app,bd)=>{
       
     })
     //DELETE DO CRUD - DELETAR REGISTROS
-    app.delete('/cliente/:id', (req, res) => {
+    app.delete('/tatuadores/:id', (req, res) => {
         const data = async() => {
             try {
-                const clientes =  await DAOCliente.deleteClientes(req.params.id)
-                res.send(clientes)
+                const tatuadores =  await DAOTatuadores.deleteTatuadores(req.params.id)
+                res.send(tatuadores)
             }catch(err) {
                 res.send(err)
             }
@@ -82,4 +82,4 @@ const Tatuadores = (app,bd)=>{
     })
 } 
 
-module.exports = cliente;
+module.exports = tatuadores;
