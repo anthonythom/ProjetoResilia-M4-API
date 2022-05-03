@@ -10,7 +10,7 @@ class CatalogoExlusivasDAO {
         })
       })
     }
-  }
+  
 
   buscaEspecifica(id){
     return new Promise((resolve, reject)=>{
@@ -37,6 +37,17 @@ class CatalogoExlusivasDAO {
     })
   }
 
+  deletaExclusivas(id){
+    return new Promise((resolve, reject)=>{
+      if(id>-1){
+        this.bd.run(`delete from EXCLUSIVAS where id =?`, [id], (error)=>{
+          error?reject(error):resolve(`usuário de id ${id} deletado`)
+        })
+      }
+    })
+  }
 
-  module.exports= CatalogoExlusivasDAO
+}
+
+module.exports= CatalogoExlusivasDAO
   
