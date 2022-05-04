@@ -12,5 +12,13 @@ class Cliente {
     this.cep = cep
     this.data_nasc = data_nasc
   }
+  verificarSenha(senha) {
+    if (senha.length <= 8) {
+        return senha;
+    } else {
+        throw new Error("Senha deve ter até 8 caracteres")
+    }
+}
+
 }
 module.exports = Cliente

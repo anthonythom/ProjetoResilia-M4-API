@@ -41,7 +41,7 @@ class ClienteDAO{
     }
     altereClientes(Parametros){
         return new Promise((resolve, reject) =>{
-            this.bd.run(`UPDATE CLIENTES SET NOME = ?, EMAIL = ? , SENHA = ?, DDD = ?, TELEFONE = ?, CPF = ?, RUA = ?, CEP = ?, DATA_NASC = ? WHERE id = ?`, Parametros ,(error)=>{
+            this.bd.run(`UPDATE CLIENTES SET NOME = ?, EMAIL = ? , SENHA = ? , DDD = ? , TELEFONE = ? , CPF = ? , RUA = ?, CEP = ?, DATA_NASC = ? WHERE ID = ?`, Parametros ,(error)=>{
             if(error){
                 console.log(error)
                reject(error);
