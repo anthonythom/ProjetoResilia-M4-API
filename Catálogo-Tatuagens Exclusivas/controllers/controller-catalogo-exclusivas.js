@@ -6,21 +6,21 @@ const catalogoExclusivas = (app, bd) => {
   const instDAO = new CatalogoExclusivasDAO(bd)
 
   app.get('/catalogo-exclusivas', async (req, res)=>{
-  try{
-    const busca = await instDAO.listarCatalogo()
-    res.send(busca)
-  }catch(error){
-    res.send(error)
-  }
+    try{
+      const busca = await instDAO.listarCatalogo()
+      res.send(busca)
+    }catch(error){
+      res.send(error)
+    }
   })
 
-  app.get('/catalogo-exclusivas:id', async (req, res)=>{
-    const user = req.params.instDAO
-    try{
-      const buscaId = await instDAO.buscaEspecifica(user)
-      res.send(buscaId)
-    } catch(error){
-      res.send(error)
+  app.get('/catalogo-exclusivas/:id', async (req, res) => {
+    const userID = req.params.id 
+    try {
+      const buscaId = await instDAO.buscaEspecifica(userID)
+      res.status(200).send(buscaId)
+    } catch(err) {
+      res.send(err)
     }
   })
 
@@ -36,22 +36,23 @@ const catalogoExclusivas = (app, bd) => {
     }
   })
 
-  app.put('/catalogo-exclusivas:id', async (req, res)=>{
+  app.put('/catalogo-exclusivas/:id', async (req, res) => {
     const user = req.params.id 
     const body = req.body
 
-    const data = async()=>{
+    const data = async ()=>{
       try{
-        const dados = await instDAO.buscaEspecifica(user);
+        const dadosAtuais = await instDAO.buscaEspecifica(user);
         const catalogo = new Exclusivas(
-        body.imagem || dados[0].IMAGEM,
-        body.titulo || dados[0].TITULO,
-        body.descricao || dados[0].DESCRICAO,
-        body.tamanho || dados[0].TAMANHO,
-        body.preco || dado[0].PRECO,
-        body.categoria || dados[0].CATEGORIA
+        body.imagem || dadosAtuais[0].IMAGEM,
+        body.titulo || dadosAtuais[0].TITULO,
+        body.descricao || dadosAtuais[0].DESCRICAO,
+        body.tamanho || dadosAtuais[0].TAMANHO,
+        body.preco || dadosAtuais[0].PRECO,
+        body.categoria || dadosAtuais[0].CATEGORIA
         )
         const parametros = [catalogo.imagem, catalogo.titulo, catalogo.descricao, catalogo.tamanho, catalogo.preco, catalogo.categoria, user]
+
         const update = await instDAO.atualizaExclusivas(parametros)
         res.send(update)
       } catch(error){

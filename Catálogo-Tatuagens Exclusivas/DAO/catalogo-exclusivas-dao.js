@@ -10,12 +10,11 @@ class CatalogoExlusivasDAO {
         })
       })
     }
-  
 
-  buscaEspecifica(id){
+  buscaEspecifica(id) {
     return new Promise((resolve, reject)=>{
-      this.bd.all(`SELECT*FROM EXCLUSIVAS WHERE ID = ?`, [id], (error, rows)=>{
-        error?reject(console.log(error)):resolve(rows)
+      this.bd.all(`SELECT * FROM EXCLUSIVAS WHERE ID = ?`, [id], (error, rows)=>{
+        error ? reject(console.log(error)) : resolve(rows)
       })
     })
   }
@@ -29,10 +28,10 @@ class CatalogoExlusivasDAO {
     })
   }
 
-  atualizaExclusivas(atualizacao){
-    return new Promise((resolve, reject)=>{
-      this.bd.run(`UPDATE EXCLUSIVAS SET IMAGEM=?, TITULO=?, DESCRICAO=?, TAMANHO=?, PRECO=?, CATALOGO=?, WHERE ID=?`, atualizacao, (error)=>{
-        error?reject(error):resolve(`Usuário de ID ${id} deletado`)
+  atualizaExclusivas(atualizacao) {
+    return new Promise((resolve, reject) => {
+      this.bd.run(`UPDATE EXCLUSIVAS SET imagem=?, titulo=?, descricao=?, tamanho=?, preco=?, categoria=? WHERE ID=?`, atualizacao, (error) => {
+        error ? reject(error) : resolve(`Usuário atualizado`)
       })
     })
   }
@@ -46,8 +45,6 @@ class CatalogoExlusivasDAO {
       }
     })
   }
-
 }
 
 module.exports= CatalogoExlusivasDAO
-  
