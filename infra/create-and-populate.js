@@ -158,17 +158,8 @@ function populaTabelaExclusivas() {
     });
 }
 
-db.serialize( ()=> {
-    criaTabelaClientes();
-    populaClientes();
-    criaTabelaCata();
-    populaTabelaCata();
-    criaTabelaAcessorios();
-    populaAcessorios();
-    criaTabelaExclusivas();
-    populaTabelaExclusivas();
-    criaTabelaTatuadores;
-   populaTatuadores;
+
+    
 //TATUADORES
 
 const  TATUADORES_SCHEMA = `
@@ -201,15 +192,16 @@ CREATE TABLE IF NOT EXISTS "TATUADORES" (
            if (erro) console.log(`Erro ao popular tabela de tatuadores: ${erro}`);
         });
     }
-    
 
-db.serialize( ()=> {
-   criaTabelaClientes();
-   populaClientes();
-   criaTabelaCata();
-   populaTabelaCata();
-   criaTabelaAcessorios();
-   populaAcessorios();
-   criaTabelaTatuadores;
-   populaTatuadores;
-})
+    db.serialize( ()=> {
+        criaTabelaClientes();
+        populaClientes();
+        criaTabelaCata();
+        populaTabelaCata();
+        criaTabelaAcessorios();
+        populaAcessorios();
+        criaTabelaExclusivas();
+        populaTabelaExclusivas();
+        criaTabelaTatuadores();
+        populaTatuadores();
+    })
