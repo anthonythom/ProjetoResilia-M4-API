@@ -52,7 +52,7 @@ const catalogoSimples = (app, bd) => {
           body.preco || dadosCatalogo[0].PRECO
           )
         const parametros = [catalogoDado.imagem, catalogoDado.titulo, catalogoDado.descricao, catalogoDado.tamanho, catalogoDado.preco, userID]
-        console.log(dadosCatalogo[0].PRECO)
+
         const updateTattoo = await instanciaDAO.atualizaTattoos(parametros)
         resp.send(updateTattoo)
       } catch(error) {
