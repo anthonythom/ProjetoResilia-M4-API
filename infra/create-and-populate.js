@@ -38,6 +38,7 @@ function populaClientes() {
 }
 
 //==== Usuários
+//catálogo simples
 const CATALOGO_SCHEMA = `
 CREATE TABLE IF NOT EXISTS "CATALOGO" (
     "ID" INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -111,6 +112,54 @@ function populaAcessorios() {
     });
 }
 
+//catalogo de tatuagens exclusivas
+
+const EXCLUSIVAS_SCHEMA = `
+CREATE TABLE IF NOT EXISTS "EXCLUSIVAS" (
+    "ID" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "IMAGEM" varchar(300),
+    "TITULO" varchar(64),
+    "DESCRICAO" varchar(200),
+    "TAMANHO" int(10),
+    "PRECO" int(15),
+    "CATEGORIA" varchar(20)
+  );`;
+
+const ADD_EXCLUSIVAS_DATA = `
+INSERT INTO EXCLUSIVAS (ID, IMAGEM, TITULO, DESCRICAO, TAMANHO, PRECO, CATEGORIA)
+VALUES 
+    (1, 'http://3.bp.blogspot.com/-pqr1_yExk1o/UdRczdaitMI/AAAAAAAAAJ0/90vu5wOKU9A/s770/Tatuagens-em-lugares-estranhos-20.jpg', 'Tubarão', 'tubarão engolindo uma pessoa', 20, 500, 'animais'),
+    (2, 'https://bemresolvida.com.br/wp-content/uploads/2020/05/Tatuagem-de-cachorro-2-740x740.jpg', 'cachorro', 'retrato do cachorro da cliente', 10, 700, 'animais/retrato'),
+    (3, 'https://blog.pajaris.com.br/wp-content/uploads/2020/07/tatuagem-caes.jpg', 'cachorro', 'retrato do cachorro da cliente', 15, 600, 'animais/retrato'),
+    (4, 'https://d5y9g7a5.rocketcdn.me/wp-content/uploads/2021/01/tatuagens-realistas-desenhos-impressionantes-para-te-inspirar-960x658.jpg.webp', 'olho', 'imagem de perfil de um olho', '20', '800', 'realismo'),
+    (5, 'https://blog.pajaris.com.br/wp-content/uploads/2020/07/tatugem-para-homenagear-os-c%C3%A3es-750x430.jpg', 'cachorro', 'desenho do cachorro da cliente', 15, 700, 'desenho'),
+    (6, 'https://s3-blog.tattoo2me.com/wp-content/uploads/2020/02/1*7H5cDtPp6pgqZsXBeL4kEg.jpeg', 'leão', 'desenho de um leão para cobertura das costas', 60, 4000, 'animais'),
+    (7, 'https://s3-blog.tattoo2me.com/wp-content/uploads/2020/02/1*Pb1kb71D0NnCYI3Xuglcig.jpeg', 'leão', 'desenho de leão para fechamento de braço', 40, 2000, 'animais'),
+    (8, 'https://letsgeek.com.br/wp-content/uploads/2021/04/137340462_156342756022591_6745089354111183829_n-818x1024.jpg', 'naruto', 'arte criada inspirada no anime naruto', 30, 2000, 'anime'),
+    (9, 'https://criticalhits.com.br/wp-content/uploads/2021/10/gambetti.tattoo_231437657_366825928348230_654679779693125168_n-768x768.jpg', 'naruto', 'arte criada inspirada no anime naruto', 25, 900, 'anime'),
+    (10, 'https://cdn.men-lifestyle.net/3068363/30_best_black_white_one_piece_tattoo_design_ideas_14.jpg.webp', 'one-piece', 'arte criada inspirada no anime one piece', 90, 5000, 'anime'),
+    (11, 'https://static.dicionariodesimbolos.com.br/upload/1e/cf/tatuagem-de-caveira-1_xl.jpeg', 'caveira', 'caveiras empilhadas', 25, 400, 'dark'),
+    (12, 'https://i.pinimg.com/564x/8b/e4/64/8be464b91dab9302e2a7b10fde79072e.jpg', 'caveira', 'caveira militar para cobertura de braço', 35, 600, 'dark'),
+    (13, 'https://i.pinimg.com/564x/82/13/c9/8213c9f268cccf7098996ff78d74924c.jpg', 'caveira', 'caveira para cobertura completa de braço', 60, 2500, 'dark'),
+    (14, 'https://i.pinimg.com/564x/4d/f9/a6/4df9a6d8e959837cc23fa01f1623c3c8.jpg', 'indiano', 'desenho realista de um senhor indiano', 35, 2000, 'realismo'),
+    (15, 'https://mega.ibxk.com.br/2018/12/05/tatuagem-05122931304132.jpg?ims=610x', 'ciborg', 'desenho realista ilustrando um braço de ciborg', 40, 4000, 'realismo'),
+    (16, 'https://www.tattooers.net/pt/el-loco-tattoo-lounge/tatuagem-retrato-realisticas-peito/14362/', 'retrato', 'retrato baseado em uma foto', 35, 4000, 'retrato')
+`
+
+function criaTabelaExclusivas() {
+    db.run(EXCLUSIVAS_SCHEMA, (error)=> {
+       if (error) console.log(`Erro ao criar tabela de tatuagens exclusivas: ${error}`);
+    });
+}
+
+function populaTabelaExclusivas() {
+    db.run(ADD_EXCLUSIVAS_DATA, (error)=> {
+       if (error) console.log(`Erro ao popular tabela de tatuagens exclusivas: ${error}`);
+    });
+}
+
+
+    
 //TATUADORES
 
 const  TATUADORES_SCHEMA = `
@@ -143,15 +192,16 @@ CREATE TABLE IF NOT EXISTS "TATUADORES" (
            if (erro) console.log(`Erro ao popular tabela de tatuadores: ${erro}`);
         });
     }
-    
 
-db.serialize( ()=> {
-   criaTabelaClientes();
-   populaClientes();
-   criaTabelaCata();
-   populaTabelaCata();
-   criaTabelaAcessorios();
-   populaAcessorios();
-   criaTabelaTatuadores
-   populaTatuadores
-});
+    db.serialize( ()=> {
+        criaTabelaClientes();
+        populaClientes();
+        criaTabelaCata();
+        populaTabelaCata();
+        criaTabelaAcessorios();
+        populaAcessorios();
+        criaTabelaExclusivas();
+        populaTabelaExclusivas();
+        criaTabelaTatuadores();
+        populaTatuadores();
+    })
