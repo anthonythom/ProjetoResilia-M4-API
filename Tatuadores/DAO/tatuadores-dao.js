@@ -8,7 +8,7 @@ class TatuadoresDAO{
                 if(err){
                     reject(err)
                 }else{
-                    resolve(results)
+                    resolve({"Lista de tatuadores": results})
                 }
             })
         })
@@ -27,17 +27,14 @@ class TatuadoresDAO{
     }
     insereTatuador(NovoTatuador){
         return new Promise((resolve, reject) =>{
-            this. bd.run(`INSERT INTO TATUADORES (NOME , EMAIL ,  DDD, TELEFONE, CPF, RUA, CEP, DATA_NASC) VALUES (?,?,?,?,?,?,?,?,?)`,
-            [NovoTatuador.nome, NovoTatuador.email, NovoTatuador.senha, NovoTatuador.ddd, NovoTatuador.telefone, NovoTatuador.cpf, NovoTatuador.cep, NovoTatuador.data_nasc],(error)=>{
-                if(error){
+            this.bd.run('INSERT INTO TATUADORES (nome, email, ddd, telefone, cpf, rua, cep, data_nasc) VALUES (?,?,?,?,?,?,?,?)', [NovoTatuador.nome, NovoTatuador.email, NovoTatuador.ddd, NovoTatuador.telefone, NovoTatuador.cpf, NovoTatuador.rua, NovoTatuador.cep, NovoTatuador.data_nasc],(error)=>{
+                if(error) {
                    reject(error);
                 }else{
                    resolve("TATUADOR INSERIDO COM SUCESSO!")
                 }
             })
-      
         })
-
     }
     altereTatuador(Parametros){
         return new Promise((resolve, reject) =>{

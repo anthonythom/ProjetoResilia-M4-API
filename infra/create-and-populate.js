@@ -178,9 +178,9 @@ CREATE TABLE IF NOT EXISTS "TATUADORES" (
   const ADD_TATUADORES_DATA  = `
   INSERT INTO TATUADORES (ID_T, NOME, EMAIL, DDD, TELEFONE, CPF, RUA, CEP, DATA_NASC)
   VALUES
-      (100B, 'Bruce Wayne', 'batman@dc.com.br', '*******', '99', '940028922', '56923423965', 'rua de Gothan', '65485010', '30/05/2001'),
-      (200V, 'James Howleat', 'logan2@gmail.com', '********', '98', '940428922', '56223423465', 'rua Melhor naquilo que faz', '65585000', '30/06/1737'),
-      (300P, 'Guen Stacy', 'spider@yahoo.com', '********', '97', '950028922', '56923433465', 'rua Marvel', '67485000', '30/04/2001') `
+      (1, 'Bruce Wayne', 'batman@dc.com.br', '99', '940028922', '56923423965', 'rua de Gothan', '65485010', '30/05/2001'),
+      (2, 'James Howleat', 'logan2@gmail.com', '98', '940428922', '56223423465', 'rua Melhor naquilo que faz', '65585000', '30/06/1737'),
+      (3, 'Guen Stacy', 'spider@yahoo.com', '97', '950028922', '56923433465', 'rua Marvel', '67485000', '30/04/2001') `
   
       function criaTabelaTatuadores() {
         db.run(TATUADORES_SCHEMA, (erro)=> {
