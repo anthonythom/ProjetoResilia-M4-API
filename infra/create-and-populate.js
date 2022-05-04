@@ -129,8 +129,8 @@ const ADD_EXCLUSIVAS_DATA = `
 INSERT INTO EXCLUSIVAS (ID, IMAGEM, TITULO, DESCRICAO, TAMANHO, PRECO, CATEGORIA)
 VALUES 
     (1, 'http://3.bp.blogspot.com/-pqr1_yExk1o/UdRczdaitMI/AAAAAAAAAJ0/90vu5wOKU9A/s770/Tatuagens-em-lugares-estranhos-20.jpg', 'Tubarão', 'tubarão engolindo uma pessoa', 20, 500, 'animais'),
-    (2, 'https://bemresolvida.com.br/wp-content/uploads/2020/05/Tatuagem-de-cachorro-2-740x740.jpg, 'cachorro', 'retrato do cachorro da cliente', 10, 700, 'animais/retrato'),
-    (3, 'https://blog.pajaris.com.br/wp-content/uploads/2020/07/tatuagem-caes.jpg'), 'cachorro', 'retrato do cachorro da cliente', 15, 600, 'animais/retrato'),
+    (2, 'https://bemresolvida.com.br/wp-content/uploads/2020/05/Tatuagem-de-cachorro-2-740x740.jpg', 'cachorro', 'retrato do cachorro da cliente', 10, 700, 'animais/retrato'),
+    (3, 'https://blog.pajaris.com.br/wp-content/uploads/2020/07/tatuagem-caes.jpg', 'cachorro', 'retrato do cachorro da cliente', 15, 600, 'animais/retrato'),
     (4, 'https://d5y9g7a5.rocketcdn.me/wp-content/uploads/2021/01/tatuagens-realistas-desenhos-impressionantes-para-te-inspirar-960x658.jpg.webp', 'olho', 'imagem de perfil de um olho', '20', '800', 'realismo'),
     (5, 'https://blog.pajaris.com.br/wp-content/uploads/2020/07/tatugem-para-homenagear-os-c%C3%A3es-750x430.jpg', 'cachorro', 'desenho do cachorro da cliente', 15, 700, 'desenho'),
     (6, 'https://s3-blog.tattoo2me.com/wp-content/uploads/2020/02/1*7H5cDtPp6pgqZsXBeL4kEg.jpeg', 'leão', 'desenho de um leão para cobertura das costas', 60, 4000, 'animais'),
@@ -143,7 +143,7 @@ VALUES
     (13, 'https://i.pinimg.com/564x/82/13/c9/8213c9f268cccf7098996ff78d74924c.jpg', 'caveira', 'caveira para cobertura completa de braço', 60, 2500, 'dark'),
     (14, 'https://i.pinimg.com/564x/4d/f9/a6/4df9a6d8e959837cc23fa01f1623c3c8.jpg', 'indiano', 'desenho realista de um senhor indiano', 35, 2000, 'realismo'),
     (15, 'https://mega.ibxk.com.br/2018/12/05/tatuagem-05122931304132.jpg?ims=610x', 'ciborg', 'desenho realista ilustrando um braço de ciborg', 40, 4000, 'realismo'),
-    (16, 'https://www.tattooers.net/pt/el-loco-tattoo-lounge/tatuagem-retrato-realisticas-peito/14362/', 'retrato', 'retrato baseado em uma foto', 35, 4000, 'retrato'),  
+    (16, 'https://www.tattooers.net/pt/el-loco-tattoo-lounge/tatuagem-retrato-realisticas-peito/14362/', 'retrato', 'retrato baseado em uma foto', 35, 4000, 'retrato')
 `
 
 function criaTabelaExclusivas() {

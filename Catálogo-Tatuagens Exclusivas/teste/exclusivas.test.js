@@ -37,7 +37,7 @@ describe('url', () => {
   // Testando delete de registros
     // Digitar o registro que se deseja apagar
   test('Testando delete de registros', () => {
-    return request(url).delete('/catalogo-exclusivas/:id')
+    return request(url).delete('/catalogo-exclusivas/20')
       .then((response) => {
         expect(response.statusCode).toBe(200)
       })

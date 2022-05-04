@@ -18,7 +18,7 @@ const exclusivas = require('./Catálogo-Tatuagens Exclusivas/controllers/control
 // Importa banco de dados 
 const bd = require("./infra/sqlite-db")
 
-// executa arquivos importados; 
+// executa rotas importadas; 
 clientes(app, bd)
 catalogoSimples(app, bd)
 acessorios(app, bd)
