@@ -18,8 +18,7 @@ const catalogoExclusivas = (app, bd) => {
   app.get('/catalogo-exclusivas:id', async (req, res)=>{
     const user = req.params.instDAO
     try{
-      const buscaId = await instDAO
-      buscaEspecifica(user)
+      const buscaId = await instDAO.buscaEspecifica(user)
       res.send(buscaId)
     } catch(error){
       res.send(error)
@@ -31,8 +30,7 @@ const catalogoExclusivas = (app, bd) => {
     const nova = new Exclusivas(body.imagem, body.titulo, body.descricao, body.tamanho, body.preco, body.categoria)
 
     try{
-      const addExclusiva = await instDAO
-      inserirExclusiva(novaExclusiva)
+      const addExclusiva = await instDAO.inserirExclusiva(nova)
       res.send(addExclusiva)
     } catch(error){
       res.send(error)
@@ -45,7 +43,7 @@ const catalogoExclusivas = (app, bd) => {
 
     const data = async()=>{
       try{
-        const dados = await instDAO
+        const dados = await instDAO.
         buscaEspecifica(user);
         const catalogo = new Exclusivas(
         body.imagem || dados[0].IMAGEM,
@@ -56,8 +54,7 @@ const catalogoExclusivas = (app, bd) => {
         body.categoria || dados[0].CATEGORIA
         )
         const parametros = [catalogo.imagem, catalogo.titulo, catalogo.descricao, catalogo.tamanho, catalogo.preco, catalogo.categoria, user]
-        const update = await instDAO
-        atualizaExclusivas(parametros)
+        const update = await instDAO.atualizaExclusivas(parametros)
         res.send(update)
       } catch(error){
         res.send(error)
@@ -70,8 +67,7 @@ const catalogoExclusivas = (app, bd) => {
     const data = async()=>{
       const user = req.params.id 
       try{
-        const deleta = await instDAO
-        deletaExclusivas(user)
+        const deleta = await instDAO.deletaExclusivas(user)
         res.send(deleta)
       } catch(error){
         res.send(error)
