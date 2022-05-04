@@ -1,14 +1,13 @@
 const Exclusivas = require("../models/model-catalogo-exclusivas")
 const CatalogoExclusivasDAO = require("../dao/catalogo-exclusivas-dao")
-const { response } = require("express")
+
 
 const catalogoExclusivas = (app, bd) => {
   const instDAO = new CatalogoExclusivasDAO(bd)
 
   app.get('/catalogo-exclusivas', async (req, res)=>{
   try{
-    const busca = await instDAO
-    listarCatalogo()
+    const busca = await instDAO.listarCatalogo()
     res.send(busca)
   }catch(error){
     res.send(error)
@@ -43,8 +42,7 @@ const catalogoExclusivas = (app, bd) => {
 
     const data = async()=>{
       try{
-        const dados = await instDAO.
-        buscaEspecifica(user);
+        const dados = await instDAO.buscaEspecifica(user);
         const catalogo = new Exclusivas(
         body.imagem || dados[0].IMAGEM,
         body.titulo || dados[0].TITULO,

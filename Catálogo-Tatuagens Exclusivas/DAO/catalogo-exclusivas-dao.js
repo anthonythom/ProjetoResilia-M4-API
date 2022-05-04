@@ -5,7 +5,7 @@ class CatalogoExlusivasDAO {
   
     listarCatalogo() {
       return new Promise((resolve, reject)=>{
-        this.bd.all('select*from EXCLUSIVAS', (error, rows)=>{
+        this.bd.all('SELECT*FROM EXCLUSIVAS', (error, rows)=>{
           error? reject(`Erro na seleção do banco ${error}`):resolve({"Banco de tatuagens":rows})
         })
       })
@@ -14,7 +14,7 @@ class CatalogoExlusivasDAO {
 
   buscaEspecifica(id){
     return new Promise((resolve, reject)=>{
-      this.bd.all(`select*from EXCLUSIVAS where id = ?`, [id], (error, rows)=>{
+      this.bd.all(`SELECT*FROM EXCLUSIVAS WHERE ID = ?`, [id], (error, rows)=>{
         error?reject(console.log(error)):resolve(rows)
       })
     })
@@ -31,7 +31,7 @@ class CatalogoExlusivasDAO {
 
   atualizaExclusivas(atualizacao){
     return new Promise((resolve, reject)=>{
-      this.bd.run(`update EXCLUSIVAS set imagem=?, titulo=?, descricao=?, tamanho=?, preco=?, catalogo=?, where id=?`, atualizacao, (error)=>{
+      this.bd.run(`UPDATE EXCLUSIVAS SET IMAGEM=?, TITULO=?, DESCRICAO=?, TAMANHO=?, PRECO=?, CATALOGO=?, WHERE ID=?`, atualizacao, (error)=>{
         error?reject(error):resolve(`Usuário de ID ${id} deletado`)
       })
     })
@@ -40,7 +40,7 @@ class CatalogoExlusivasDAO {
   deletaExclusivas(id){
     return new Promise((resolve, reject)=>{
       if(id>-1){
-        this.bd.run(`delete from EXCLUSIVAS where id =?`, [id], (error)=>{
+        this.bd.run(`DELETE FROM EXCLUSIVAS WHERE ID =?`, [id], (error)=>{
           error?reject(error):resolve(`usuário de id ${id} deletado`)
         })
       }
