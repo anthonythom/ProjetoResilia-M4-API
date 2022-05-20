@@ -3,7 +3,7 @@ const Tatuadores = require('../models/tatuadoresModels')
 const TatuadoresDAO = require('../DAO/tatuadoresDao')
 
 
-const Tatuadores = (app,bd)=>{
+const TatuadoresLista = (app,bd)=>{
     const DAOTatuador = new TatuadoresDAO(bd)
     //CREATE DO CRUD - INSERIR REGISTROS
 
@@ -83,4 +83,4 @@ const Tatuadores = (app,bd)=>{
     })
 } 
 
-module.exports = tatuadores;
+module.exports = TatuadoresLista;

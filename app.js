@@ -14,7 +14,7 @@ const clientes = require('./Clientes/src/controllers/controllerClientes')
 const catalogoSimples = require('./CatálogoSimples/src/controllers/controllerCatalogo')
 const acessorios = require('./acessorios/controllers/controllerAcessorios')
 const exclusivas = require('./CatálogoTatuagensExclusivas/controllers/controllerCatalogoExclusivas')
-const tatuadores = require('./Tatuadores/controllers/controllersTatuadores')
+const listaTatuadores = require('./Tatuadores/controllers/controllersTatuadores')
 
 // Importa banco de dados 
 const bd = require("./infra/sqlitedb")
@@ -24,7 +24,7 @@ clientes(app, bd)
 catalogoSimples(app, bd)
 acessorios(app, bd)
 exclusivas(app, bd)
-tatuadores(app, bd)
+listaTatuadores(app, bd)
 
 app.listen(port, () => {
   console.log(`Servidor rodando na porta 3030`);
