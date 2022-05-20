@@ -1,5 +1,5 @@
-const Tattoo = require("../models/catalogo-model")
-const CatalogoSimplesDAO = require("../dao/catalogo-dao")
+const Tattoo = require("../models/catalogoModel")
+const CatalogoSimplesDAO = require("../dao/catalogoDao")
 
 const catalogoSimples = (app, bd) => {
   // Instanciando catalogoDAO para puxar os métodos

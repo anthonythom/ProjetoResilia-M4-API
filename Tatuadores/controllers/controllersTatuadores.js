@@ -1,6 +1,6 @@
 //PESSOA - CRUD 
-const Tatuadores = require('../models/tatuadores-models.js')
-const TatuadoresDAO = require('../DAO/tatuadores-dao')
+const Tatuadores = require('../models/tatuadoresModels')
+const TatuadoresDAO = require('../DAO/tatuadoresDao')
 
 
 const Tatuadores = (app,bd)=>{

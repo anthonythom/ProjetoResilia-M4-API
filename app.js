@@ -10,13 +10,13 @@ app.use(cors())
 app.use(express.json())
 
 // importa rotas 
-const clientes = require('./Clientes/src/controllers/controller-clientes.js')
-const catalogoSimples = require('./Catálogo-Simples/src/controllers/controller-catalogo')
-const acessorios = require('./acessorios/controllers/controller-acessorios')
-const exclusivas = require('./Catálogo-Tatuagens Exclusivas/controllers/controller-catalogo-exclusivas')
+const clientes = require('./Clientes/src/controllers/controllerClientes')
+const catalogoSimples = require('./Catálogo-Simples/src/controllers/controllerCatalogo')
+const acessorios = require('./acessorios/controllers/controllerAcessorios')
+const exclusivas = require('./Catálogo-Tatuagens Exclusivas/controllers/controllerCatalogoExclusivas')
 
 // Importa banco de dados 
-const bd = require("./infra/sqlite-db")
+const bd = require("./infra/sqlitedb")
 
 // executa rotas importadas; 
 clientes(app, bd)

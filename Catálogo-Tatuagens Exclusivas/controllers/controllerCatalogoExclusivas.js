@@ -1,5 +1,5 @@
-const Exclusivas = require("../models/model-catalogo-exclusivas")
-const CatalogoExclusivasDAO = require("../dao/catalogo-exclusivas-dao")
+const Exclusivas = require("../models/modelCatalogoExclusivas")
+const CatalogoExclusivasDAO = require("../dao/catalogoExclusivasDao")
 
 
 const catalogoExclusivas = (app, bd) => {

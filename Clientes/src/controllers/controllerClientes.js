@@ -1,6 +1,6 @@
 //PESSOA - CRUD 
-const Cliente = require('../models/clientes-models.js')
-const ClienteDAO = require('../DAO/cliente-dao')
+const Cliente = require('../models/clientesModels')
+const ClienteDAO = require('../DAO/clienteDao')
 
 
 const cliente = (app, bd) => {

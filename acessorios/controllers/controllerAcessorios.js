@@ -1,5 +1,5 @@
-const Acessorios = require("../../acessorios/model/acessorios-model")
-const AcessoriosDAO = require("../../acessorios/dao/acessorios-dao")
+const Acessorios = require("../model/acessoriosModel")
+const AcessoriosDAO = require("../dao/acessoriosDao")
 
 const acessorios = (app, bd) => {
   // Instanciando catalogoDAO para puxar os métodos
