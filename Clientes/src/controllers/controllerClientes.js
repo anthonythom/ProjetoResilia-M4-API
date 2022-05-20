@@ -36,22 +36,20 @@ const cliente = (app, bd) => {
 
     })
     // READ DO CRUD E EXIBI REGISTROS
-    app.get('/cliente/:id', (req, res) => {
-        const data = async () => {
+    app.get('/cliente/:id', async (req, res) => {
+        console.log(req.params.id)
             try {
                 const clientes = await DAOCliente.listarClientesID(req.params.id);
                 res.send(clientes)
             } catch (err) {
                 res.send(err)
             }
-
-        }
-        data()
     })
     //UPDATE DO CRUD - ATUALIZAR REGISTROS
     app.put('/cliente/:id', (req, res) => {
         const id = req.params.id
         const body = req.body
+
         const data = async () => {
             try {
                 const dadosAtuais = await DAOCliente.listarClientesID(id)
@@ -67,18 +65,16 @@ const cliente = (app, bd) => {
                     body.data_nasc || dadosAtuais[0].DATA_NASC
                 ) 
                 const parametros = [dadosNovos.nome, dadosNovos.email, dadosNovos.senha, dadosNovos.ddd, dadosNovos.telefone, dadosNovos.cpf, dadosNovos.rua, dadosNovos.cep, dadosNovos.data_nasc, id]
-            console.log(parametros)
-        const atualizaCliente = await DAOCliente.altereClientes(parametros)
-        res.send(atualizaCliente)
+
+        const atualizaCliente =  DAOCliente.altereClientes(parametros)
+        res.status(200).send('Cliente atualizado')
       } catch(error) {
         res.send(error)
       }
-            }
-            
-     
+    }
         data()
-
     })
+
     //DELETE DO CRUD - DELETAR REGISTROS
     app.delete('/cliente/:id', (req, res) => {
         const data = async () => {
