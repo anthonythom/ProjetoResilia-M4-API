@@ -27,7 +27,7 @@ const cliente = (app, bd) => {
             try {
                 const clientes = await DAOCliente.listarClientes()
                 res.send(clientes)
-            } catch (err) {
+            } catch (err) {fsafsafsafas 
                 res.send(err)
             }
 
